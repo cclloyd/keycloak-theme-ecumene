@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Coda:wght@400;800&display=swap');
+
+$screen-sm-min: 576px;
+$screen-md-min: 768px;
+$screen-lg-min: 992px;
+$screen-xl-min: 1200px;
+@mixin sm {
+  @media (min-width: #{$screen-sm-min}) {
+    @content;
+  }
+}
+@mixin md {
+  @media (min-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+@mixin lg {
+  @media (min-width: #{$screen-lg-min}) {
+    @content;
+  }
+}
+@mixin xl {
+  @media (min-width: #{$screen-xl-min}) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (max-width: #{$screen-lg-min}) {
+    @content;
+  }
+}
+
+body, html {
+  min-width: 100vw;
+  min-height: 100vh;
+  background: #222;
+  color: #ddd;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  background-image: url('images/wall-blue.jpg');
+  background-attachment: fixed;
+  background-position: center center;
+}
+
+a {
+  color: white;
+}
+
+.login-pf-page {
+  width: 280px;
+  border-radius: 512px 512px 200px 200px;
+  background-color: rgba(255,255,255,0.2);
+  text-align: center;
+  font-family: sans-serif;
+  color: #eee;
+  padding: 0 0 40px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5), inset 0 0 5px rgba(18, 212, 255, 0.75);
+  background-image: url('images/wall-blue-vertical-blur.png');
+  background-size: auto 100vh;
+  background-position: center center;
+  background-attachment: scroll;
+  overflow: hidden;
+  @supports (backdrop-filter: none) {
+    background-color: rgba(255,255,255,.05);
+    background-image: none;
+    backdrop-filter: blur(20px) brightness(1.2);
+  }
+  @include mobile {
+    width: 90vw;
+    max-width: 90vw;
+  }
+
+  #kc-header {
+    font-size: 24pt;
+    font-family: 'Coda', sans-serif;
+    color: #eee;
+    color: rgba(255,255,255,0.8);
+    font-weight: normal;
+    user-select: none;
+    margin-bottom: 1rem;
+    text-transform: none;
+  }
+
+  #logo {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 10px rgba(1, 188, 255, 0.9));
+    @include mobile {
+      width: 85%;
+    }
+  }
+
+
+
+  @include mobile {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  #kc-locale {
+    display: none;
+  }
+
+  .alert {
+    margin: 2rem 0;
+  }
+  .alert-success {
+
+  }
+
+  #kc-registration {
+    font-size: 8pt;
+  }
+
+  .form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+    padding: 0 0.5rem;
+    height: 30px;
+    label {
+      span {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+      text-align: center;
+      font-family: "Coda", sans-serif;
+      font-size: 11pt;
+      position: absolute;
+      min-width: 200px;
+      height: 30px;
+      line-height: 30px;
+      top: 0;
+      left: 50%;
+      margin-left: -100px;
+      user-select: none;
+      color: rgba(255,255,255,0.8);
+      transition-property: color, font-size, height, line-height, top;
+      transition-duration: 150ms;
+      transition-timing-function: ease-out;
+      @include mobile {
+        height: 40px;
+        line-height: 40px;
+      }
+    }
+    &:focus-within label {
+      color: rgba(255,255,255,0.5);
+      font-size: 6pt;
+      height: 10px;
+      line-height: 10px;
+      top: -10px;
+      @include mobile {
+        font-size: 8pt;
+        height: 10px;
+        line-height: 10px;
+        top: -10px;
+      }
+    }
+
+
+    input.form-control {
+      user-select: none;
+      font-size: 11pt;
+      border-radius: 15px;
+      border-width: 1px;
+      border-style: solid;
+      border-color: rgba(255,255,255,0.15);
+      background-color: rgba(255,255,255,0.05);
+      box-shadow: inset 0 0 4px rgba(255,255,255,0.05);
+      color: #eee;
+      box-sizing: border-box;
+      width: 100%;
+      padding: 4px 8px;
+      font-family: "Coda", sans-serif;
+      text-align: center;
+      transition-duration: 150ms;
+      transition-timing-function: ease-out;
+      transition-property: border-color, background-color, box-shadow;
+      height: 30px;
+      @include mobile {
+        height: 40px;
+        line-height: 40px;
+        border-radius: 20px;
+      }
+      &:hover {
+        border-color: rgba(255,255,255,0.2);
+        background-color: rgba(255,255,255,0.08);
+        box-shadow: inset 0 0 8px rgba(255,255,255,0.1);
+      }
+      &:focus {
+        outline: none;
+        border-color: rgba(255,255,255,0.4);
+        background-color: rgba(255,255,255,0.12);
+        box-shadow: inset 0 0 6px rgba(255,255,255,0.14);
+      }
+    }
+  }
+
+}
+
